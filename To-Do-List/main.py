@@ -16,7 +16,7 @@ mycol = mydb["userdb"]
 
 TDL = []
 
-num = (int)(input('''Choose what are you doing =>>> 
+num = (int)(input('''Choose what you want to do =>>> 
                   1. login
                   2. create new account
                   =>> '''))
@@ -46,6 +46,13 @@ elif(num == 2):
         else:
             flag = 1
     password = pi.pwinput(prompt="Set Your Pssword : " ,mask="*")
+    userDict = {
+            "Name" : name,
+            "UserName" : uname,
+            "Password" : password,
+            "TDlist" : TDL
+        }           
+    mycol.insert_one(userDict)
 else:
     print("Pls choose right number !")
 
@@ -59,7 +66,7 @@ def addWork(work):
             "Name" : name,
             "UserName" : uname,
             "Password" : password,
-            "   TDlist" : TDL
+            "TDlist" : TDL
         }           
         mycol.insert_one(userDict)
         
